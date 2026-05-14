@@ -9,7 +9,7 @@ def emotion_detector(text_to_analyze):
         "grpc-metadata-mm-model-id": "emotion_aggregated-workflow_lang_en_stock"
     }
 
-    # Handle blank input (Task 7 requirement)
+    # Handle blank input
     if text_to_analyze is None or text_to_analyze.strip() == "":
         return {
             "anger": None,
@@ -28,7 +28,7 @@ def emotion_detector(text_to_analyze):
 
     response = requests.post(url, json=payload, headers=headers)
 
-    # Task requirement: handle status_code == 400
+    # Handle status code 400
     if response.status_code == 400:
         return {
             "anger": None,
